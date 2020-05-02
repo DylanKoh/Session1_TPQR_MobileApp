@@ -17,5 +17,15 @@ namespace Session1_TPQR_MobileApp
         {
             InitializeComponent();
         }
+
+        private async void btnCreate_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Create());
+        }
+
+        private async void btnLogin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Login());
+        }
     }
 }

@@ -4,13 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="ASEAN Skills 2020 26 – 28 Jul 2020"
              x:Class="Session1_TPQR_MobileApp.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout Padding="10">
+        <Button x:Name="btnCreate" Clicked="btnCreate_Clicked" Text="Create New Account"/>
+        <Button x:Name="btnLogin" Clicked="btnLogin_Clicked" Text="Resource Manager Login"/>
     </StackLayout>
 
 </ContentPage>

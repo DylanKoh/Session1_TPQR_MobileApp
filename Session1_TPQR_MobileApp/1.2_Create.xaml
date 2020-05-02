@@ -6,10 +6,19 @@
              mc:Ignorable="d"
              x:Class="Session1_TPQR_MobileApp.Create">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10">
+            <Label Text="New Account Creation" FontSize="Title" HorizontalOptions="CenterAndExpand" />
+            <Label Text="User Name: "/>
+            <Entry x:Name="entryUserName" Placeholder="User Name"/>
+            <Label Text="User ID (For Login): "/>
+            <Entry x:Name="entryUserID" Placeholder="User ID"/>
+            <Label Text="Password: "/>
+            <Entry x:Name="entryPassword" Placeholder="Password" IsPassword="True"/>
+            <Label Text="Re-Enter Password: "/>
+            <Entry x:Name="entryRePassword" Placeholder="Re-enter password (to confirm)" IsPassword="True"/>
+            <Label Text="User-Type"/>
+            <Picker Title="User Type" x:Name="pickerUserType" />
+            <Button Text="Create Account" x:Name="btnCreate" Clicked="btnCreate_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

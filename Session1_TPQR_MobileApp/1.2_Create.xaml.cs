@@ -52,6 +52,10 @@ namespace Session1_TPQR_MobileApp
                         await DisplayAlert("Create Account", "Your account has been created successfully!", "Ok");
                         await Navigation.PopAsync();
                     }
+                    else if (Encoding.Default.GetString(response) == "\"User ID has been taken!\"")
+                    {
+                        await DisplayAlert("Create Account", "Your desired User ID has been taken! Please choose another User ID!", "Ok");
+                    }
                     else
                     {
                         await DisplayAlert("Create Account", "Your account has not been created! Please check your fields and try again!", "Ok");

@@ -46,7 +46,7 @@ namespace Session1_TPQR_MobileApp
                         if (user.userTypeIdFK == 1)
                         {
                             await DisplayAlert("Login", $"Welcome {user.userName}!", "Ok");
-                            await Navigation.PushAsync(new ResourceManagement(user));
+                            await Navigation.PushAsync(new ResourceManagement());
                         }
                         else
                         {

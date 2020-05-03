@@ -14,11 +14,9 @@ namespace Session1_TPQR_MobileApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResourceManagement : ContentPage
     {
-        User _user;
-        public ResourceManagement(User user)
+        public ResourceManagement()
         {
             InitializeComponent();
-            _user = user;
         }
     }
 }

@@ -26,6 +26,9 @@
     <Compile Update="1.3_Login.xaml.cs">
       <DependentUpon>1.3_Login.xaml</DependentUpon>
     </Compile>
+    <Compile Update="1.4_ResourceManagement.xaml.cs">
+      <DependentUpon>1.4_ResourceManagement.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +38,7 @@
     <EmbeddedResource Update="1.3_Login.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ResourceManagement.xaml">
+    <EmbeddedResource Update="1.4_ResourceManagement.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

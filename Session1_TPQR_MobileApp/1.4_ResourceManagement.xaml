@@ -11,22 +11,41 @@
                 HorizontalOptions="CenterAndExpand" 
                    FontSize="Title"/>
             <Grid Padding="5">
-                <Label Text="Filter By Type: "/>
-                <Picker Title="Type" x:Name="pickerType" Grid.Column="1"/>
-                <Label Text="Filter By Skill: " Grid.Row="1"/>
-                <Picker Title="Skill" x:Name="pickerSkill" Grid.Column="1" Grid.Row="1"/>
+                <Label Text="Filter By Type: " FontSize="Medium"/>
+                <Picker Title="Type" x:Name="pickerType" Grid.Column="1" FontSize="Medium" HeightRequest="60"/>
+                <Label Text="Filter By Skill: " Grid.Row="1" FontSize="Medium"/>
+                <Picker Title="Skill" x:Name="pickerSkill" Grid.Column="1" Grid.Row="1" FontSize="Medium"/>
             </Grid>
-            <ListView HasUnevenRows="True">
+            <ListView HasUnevenRows="True" x:Name="lvResources">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                
-                            </Grid>
+                            <Frame Padding="5" Margin="10" BackgroundColor="AliceBlue" BorderColor="Black">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Name: "/>
+                                    <Label Text="{Binding ResourceName}" Grid.Column="1"/>
+                                    <Label Text="Type: " Grid.Row="1"/>
+                                    <Label Text="{Binding ResourceType}" Grid.Row="1" Grid.Column="1"/>
+                                    <Label Text="No. of Skills: " Grid.Row="2"/>
+                                    <Label Text="{Binding NumberOfSkills}" Grid.Row="2" Grid.Column="1"/>
+                                    <Label Text="Allocated Skill(s): " Grid.Row="3"/>
+                                    <Label Text="{Binding AllocatedSkills}" Grid.Row="3" Grid.Column="1"/>
+                                    <Label Text="Available Quantity: " Grid.Row="4"/>
+                                    <Label Text="{Binding AvailableQuantity}" Grid.Row="4" Grid.Column="1"/>
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Add Resource" x:Name="btnAdd" Clicked="btnAdd_Clicked"/>
+                <Button Text="Edit" x:Name="btnEdit" Clicked="btnEdit_Clicked"/>
+                <Button Text="Delete" x:Name="btnRemove" Clicked="btnRemove_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

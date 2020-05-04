@@ -19,12 +19,13 @@ namespace Session1_TPQR_MobileApp
         public Create()
         {
             InitializeComponent();
-            LoadPicker();
+            
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            LoadPicker();
         }
 
 

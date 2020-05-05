@@ -7,7 +7,7 @@
              Title="ASEAN Skills 2020"
              x:Class="Session1_TPQR_MobileApp.AddResource">
     <ContentPage.Content>
-        <StackLayout Padding="5">
+        <StackLayout Padding="10">
             <Label Text="Add New Resource" FontSize="Title"
                 HorizontalOptions="CenterAndExpand" />
             <Label Text="Resource Name: "/>

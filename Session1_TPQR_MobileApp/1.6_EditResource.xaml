@@ -4,12 +4,31 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="ASEAN Skills 2020"
              x:Class="Session1_TPQR_MobileApp.EditResource">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10">
+            <Label Text="Update Resource"
+                HorizontalOptions="CenterAndExpand" 
+                   FontSize="Title"/>
+            <Label Text="Resource Name: "/>
+            <Label x:Name="lblResourceName"/>
+            <Label Text="Resource Type: "/>
+            <Label x:Name="lblResourceType"/>
+            <Label Text="Available Quantity: "/>
+            <Entry x:Name="entryAvailableQuantity" Placeholder="Quantity" Keyboard="Numeric" Completed="entryAvailableQuantity_Completed" Focused="entryAvailableQuantity_Focused"/>
+            <Label Text="Allocated Skill(s): "/>
+            <Grid Padding="5">
+                <Label Text="Cybersecurity"/>
+                <CheckBox x:Name="cbCyberSecurity" CheckedChanged="cbCyberSecurity_CheckedChanged" Grid.Column="1"/>
+                <Label Text="Software Solutions" Grid.Row="1"/>
+                <CheckBox x:Name="cbSoftwareSolutions" Grid.Row="1" Grid.Column="1" CheckedChanged="cbSoftwareSolutions_CheckedChanged"/>
+                <Label Text="Networking" Grid.Row="2"/>
+                <CheckBox x:Name="cbNetworking" Grid.Row="2" Grid.Column="1" CheckedChanged="cbNetworking_CheckedChanged"/>
+                <Label Text="Web Tech" Grid.Row="3"/>
+                <CheckBox x:Name="cbWebTech" Grid.Row="3" Grid.Column="1" CheckedChanged="cbWebTech_CheckedChanged"/>
+            </Grid>
+            <Button Text="Edit Resource" x:Name="btnEdit" Clicked="btnEdit_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

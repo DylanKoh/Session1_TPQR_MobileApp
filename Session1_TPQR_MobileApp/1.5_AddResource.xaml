@@ -15,7 +15,7 @@
             <Label Text="Resource Type: "/>
             <Picker Title="Resource Type" x:Name="pickerResourceType"/>
             <Label Text="Available Quantity: "/>
-            <Entry x:Name="entryAvailableQuantity" Placeholder="Quantity" Keyboard="Numeric" TextChanged="entryAvailableQuantity_TextChanged"/>
+            <Entry x:Name="entryAvailableQuantity" Placeholder="Quantity" Keyboard="Numeric" Completed="entryAvailableQuantity_Completed" Focused="entryAvailableQuantity_Focused"/>
             <Label Text="Allocated Skill(s): "/>
             <Grid Padding="5">
                 <Label Text="Cybersecurity"/>

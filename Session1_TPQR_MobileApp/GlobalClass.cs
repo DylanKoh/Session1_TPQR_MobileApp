@@ -38,5 +38,19 @@ namespace Session1_TPQR_MobileApp
             public int skillId { get; set; }
             public string skillName { get; set; }
         }
+        public class Resource
+        {
+            public int resId { get; set; }
+            public string resName { get; set; }
+            public int resTypeIdFK { get; set; }
+            public int remainingQuantity { get; set; }
+        }
+        public class Resource_Allocation
+        {
+            public int allocId { get; set; }
+            public int resIdFK { get; set; }
+            public int skillIdFK { get; set; }
+
+        }
     }
 }

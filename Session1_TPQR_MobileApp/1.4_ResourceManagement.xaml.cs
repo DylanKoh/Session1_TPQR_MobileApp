@@ -48,6 +48,8 @@ namespace Session1_TPQR_MobileApp
 
         private async void LoadPickers()
         {
+            pickerSkill.Items.Clear();
+            pickerType.Items.Clear();
             using (var webClient = new WebClient())
             {
                 webClient.Headers.Add("Content-Type", "application/json");
@@ -70,19 +72,43 @@ namespace Session1_TPQR_MobileApp
             }
         }
 
-        private void btnAdd_Clicked(object sender, EventArgs e)
+        private async void btnAdd_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new AddResource());
         }
 
-        private void btnEdit_Clicked(object sender, EventArgs e)
+        private async void btnEdit_Clicked(object sender, EventArgs e)
         {
-
+            var selected = (CustomView)lvResources.SelectedItem;
+            await Navigation.PushAsync(new EditResource(selected.ResourceName));
         }
 
-        private void btnRemove_Clicked(object sender, EventArgs e)
+        private async void btnRemove_Clicked(object sender, EventArgs e)
         {
-
+            var selected = (CustomView)lvResources.SelectedItem;
+            var userResponse = await DisplayAlert("Remove", $"Are you sure you want to remove {selected.ResourceName}?", "Yes", "No");
+            if (userResponse)
+            {
+                using(var webClient = new WebClient())
+                {
+                    try
+                    {
+                        webClient.Headers.Add("Content-Type", "application/json");
+                        var response = await webClient.UploadDataTaskAsync($"http://10.0.2.2:63881/Resources/Delete?ResourceName={selected.ResourceName}", "POST",
+                            Encoding.UTF8.GetBytes(""));
+                        if (Encoding.Default.GetString(response) == "\"Resource has been successfully deleted!\"")
+                        {
+                            await DisplayAlert("Remove", "Resource has been successfully deleted!", "Ok");
+                            LoadResources();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        await DisplayAlert("Remove", "An error occured while trying to remove resource. Please try again later!", "Ok");
+                    }
+                    
+                }
+            }
         }
 
         private void pickerType_SelectedIndexChanged(object sender, EventArgs e)

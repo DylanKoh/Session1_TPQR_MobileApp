@@ -29,6 +29,12 @@
     <Compile Update="1.4_ResourceManagement.xaml.cs">
       <DependentUpon>1.4_ResourceManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Update="1.5_AddResource.xaml.cs">
+      <DependentUpon>1.5_AddResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="1.6_EditResource.xaml.cs">
+      <DependentUpon>1.6_EditResource.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +45,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="1.4_ResourceManagement.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="1.5_AddResource.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="1.6_EditResource.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

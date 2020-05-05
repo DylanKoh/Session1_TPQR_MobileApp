@@ -12,15 +12,15 @@
                    FontSize="Title"/>
             <Grid Padding="5">
                 <Label Text="Filter By Type: " FontSize="Medium"/>
-                <Picker Title="Type" x:Name="pickerType" Grid.Column="1" FontSize="Medium" HeightRequest="60"/>
+                <Picker Title="Type" x:Name="pickerType" Grid.Column="1" FontSize="Medium" HeightRequest="65" SelectedIndexChanged="pickerType_SelectedIndexChanged"/>
                 <Label Text="Filter By Skill: " Grid.Row="1" FontSize="Medium"/>
-                <Picker Title="Skill" x:Name="pickerSkill" Grid.Column="1" Grid.Row="1" FontSize="Medium"/>
+                <Picker Title="Skill" x:Name="pickerSkill" Grid.Column="1" Grid.Row="1" FontSize="Medium" SelectedIndexChanged="pickerSkill_SelectedIndexChanged"/>
             </Grid>
             <ListView HasUnevenRows="True" x:Name="lvResources">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Frame Padding="5" Margin="10" BackgroundColor="AliceBlue" BorderColor="Black">
+                        <ViewCell x:Name="vcCells">
+                            <Frame Padding="5" Margin="10" BackgroundColor="AliceBlue" BorderColor="Black" x:Name="frameBackground">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>

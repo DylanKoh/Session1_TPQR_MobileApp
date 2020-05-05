@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace Session1_TPQR_MobileApp
         public ResourceManagement()
         {
             InitializeComponent();
-            
+
         }
 
         protected override void OnAppearing()
@@ -30,7 +31,9 @@ namespace Session1_TPQR_MobileApp
             base.OnAppearing();
             LoadResources();
             LoadPickers();
+
         }
+
 
         private async void LoadResources()
         {
@@ -80,6 +83,42 @@ namespace Session1_TPQR_MobileApp
         private void btnRemove_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        private void pickerType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (pickerSkill.SelectedItem == null)
+            {
+                var filteredList = (from x in _customViews
+                                    where x.ResourceType == pickerType.SelectedItem.ToString()
+                                    select x);
+                lvResources.ItemsSource = filteredList.ToList();
+            }
+            else
+            {
+                var filteredList = (from x in _customViews
+                                    where x.ResourceType == pickerType.SelectedItem.ToString() && x.AllocatedSkills.Contains(pickerSkill.SelectedItem.ToString())
+                                    select x);
+                lvResources.ItemsSource = filteredList.ToList();
+            }
+        }
+
+        private void pickerSkill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (pickerType.SelectedItem == null)
+            {
+                var filteredList = (from x in _customViews
+                                    where x.AllocatedSkills.Contains(pickerSkill.SelectedItem.ToString())
+                                    select x);
+                lvResources.ItemsSource = filteredList.ToList();
+            }
+            else
+            {
+                var filteredList = (from x in _customViews
+                                    where x.ResourceType == pickerType.SelectedItem.ToString() && x.AllocatedSkills.Contains(pickerSkill.SelectedItem.ToString())
+                                    select x);
+                lvResources.ItemsSource = filteredList.ToList();
+            }
         }
     }
 }

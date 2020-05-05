@@ -80,6 +80,7 @@ namespace Session1_TPQR_MobileApp
         private async void btnEdit_Clicked(object sender, EventArgs e)
         {
             var selected = (CustomView)lvResources.SelectedItem;
+            Console.WriteLine(selected.ResourceName);
             await Navigation.PushAsync(new EditResource(selected.ResourceName));
         }
 
